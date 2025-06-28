@@ -27,7 +27,7 @@ export const useChatStore = create((set, get) => ({
     set({ isMessagesLoading: true });
 
     try {
-      const { data } = await axiosInstance.get(`/messages/:${userId}`);
+      const { data } = await axiosInstance.get(`/messages/${userId}`);
 
       data.success ? set({ messages: data.messages }) : set({ messages: null });
     } catch (error) {
@@ -42,7 +42,7 @@ export const useChatStore = create((set, get) => ({
 
     try {
       const { data } = await axiosInstance.post(
-        `/messages/send/:${selectedUser._id}`,
+        `/messages/send/${selectedUser._id}`,
         messageData
       );
 
