@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import cookieParser from 'cookie-parser';
-import crypto from 'crypto';
 import path from 'path';
 import connectDB from './db/connectDB.js';
 // routes
@@ -32,9 +31,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../client', 'dist', 'index.html'));
   });
 }
-// const token = crypto.randomBytes(32).toString('hex');
-
-// console.log(token);
 
 connectDB()
   .then(() => {
